@@ -6,6 +6,11 @@ replace bs.com/pkg1 v0.0.0 => ./pkg1
 
 replace bs.com/pkg2 v0.0.0 => ./pkg2
 
-require bs.com/pkg2 v0.0.0
+replace bs.com/pkg3 v0.0.0 => ./pkg3
 
-require bs.com/pkg1 v0.0.0 // indirect
+require bs.com/pkg2 v0.0.0 // indirect
+
+require (
+	bs.com/pkg1 v0.0.0
+	bs.com/pkg3 v0.0.0 // indirect
+)

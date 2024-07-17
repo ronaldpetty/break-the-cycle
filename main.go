@@ -1,9 +1,8 @@
 package main
 
-import "bs.com/pkg2"
+import "bs.com/pkg1"
 
 func main() {
   print("hi")
-  b := pkg2.Bar{}
-  b.DoSomethingElse()
+  pkg1.DoSomething()
 }

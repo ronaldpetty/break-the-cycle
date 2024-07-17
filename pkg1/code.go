@@ -1,6 +1,8 @@
 package pkg1
 
-import "bs.com/pkg2"
+import (
+  "bs.com/pkg2"
+)
 
 type Foo struct {
   data string
@@ -8,6 +10,9 @@ type Foo struct {
 
 func (Foo) DoSomething() {
   print("boo foo")
-  b := pkg2.Bar{}
-  b.DoSomething()
+}
+
+func DoSomething() {
+  g := pkg2.New(Foo{"pkg1 data"})
+  g.DoSomething() 
 }
