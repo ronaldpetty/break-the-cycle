@@ -1,18 +1,27 @@
+// AKA package B
 package pkg2
 
-import "bs.com/pkg3"
+import (
+	"bs.com/pkg4"
+)
 
-type Bar struct {
-  data string
-  other pkg3.Griffen
+type G struct {
+	data     string
+	moreData pkg4.C
 }
 
-func (b Bar) DoSomething() {
-  print("boo bar", b.data)
-  
-  b.other.DoSomething()
+func (g G) Get() string {
+	return g.data + g.moreData.Get()
 }
 
-func New(otherThing pkg3.Griffen) pkg3.Griffen {
-  return &Bar{"pkg2 data", otherThing}
+func (g G) Set(data string) {
+	g.data = data
+}
+
+func (g *G) SetMore(c pkg4.C) {
+	g.moreData = c
+}
+
+func New() pkg4.Griffen {
+	return &G{}
 }

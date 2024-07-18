@@ -1,18 +1,20 @@
+// AKA package A
 package pkg1
 
 import (
-  "bs.com/pkg2"
+	"bs.com/pkg2"
+	"bs.com/pkg3"
+	"bs.com/pkg4"
 )
 
-type Foo struct {
-  data string
-}
-
-func (Foo) DoSomething() {
-  print("boo foo")
-}
-
+// get interface instance object from B
 func DoSomething() {
-  g := pkg2.New(Foo{"pkg1 data"})
-  g.DoSomething() 
+	var g pkg4.Griffen
+	g = pkg2.New()
+
+	//print(g.Get()) // should be empty
+
+	pkg3.Update(g)
+
+	print(g.Get())
 }
